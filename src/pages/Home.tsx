@@ -1,4 +1,4 @@
-import { Github, Mail, FileDown, Sparkles, GraduationCap, Code2, ArrowUpRight } from 'lucide-react';
+import { Github, Mail, FileDown, Sparkles, GraduationCap, Code2, ArrowUpRight, UserRound } from 'lucide-react';
 import { Layout, IconLink } from '../components/Layout';
 import { PathCards, ResearchCards, ProjectCards, SectionIntro } from '../components/Cards';
 import { email, repo } from '../data/content';
@@ -10,14 +10,12 @@ export default function Home(){return <Layout>
     <div className="hero-actions"><IconLink href="/research/" style="primary">Explore research</IconLink><IconLink href="/engineering/">Explore engineering</IconLink></div>
     <div className="social-row"><a href={repo} target="_blank" rel="noopener noreferrer"><Github size={17} aria-hidden="true"/> GitHub</a><a href={'mailto:'+email}><Mail size={17} aria-hidden="true"/> Email</a><a href="/cv.pdf"><FileDown size={17} aria-hidden="true"/> Download CV</a></div>
    </div>
-   <aside className="hero-aside" aria-label="Professional highlights">
-    <div className="aside-top"><span className="eyebrow">AT A GLANCE</span><Sparkles aria-hidden="true" size={24}/></div>
-    <h2>Research backed by practical engineering.</h2>
-    <p>Computer Vision · Trustworthy AI · Medical Image Analysis · Full-Stack Development</p>
-    <div className="aside-rule"/>
-    <div className="aside-stat"><GraduationCap size={20} aria-hidden="true"/><span>Master’s in Information & Communication Engineering</span></div>
-    <div className="aside-stat"><Code2 size={20} aria-hidden="true"/><span>Software engineering & AI application development</span></div>
-    <div className="aside-bottom"><a href="/research/">Research <ArrowUpRight size={15} aria-hidden="true"/></a><a href="/engineering/">Engineering <ArrowUpRight size={15} aria-hidden="true"/></a></div>
+   <aside className="portrait-panel" aria-label="Portrait area">
+     <div className="portrait-media">
+       <img src="/images/nasir-portrait.jpg" alt="Portrait of Nasir Uddin Khan" className="portrait-photo" onError={(event) => { event.currentTarget.style.display = 'none'; event.currentTarget.parentElement?.classList.add('portrait-unavailable'); }} />
+       <div className="portrait-placeholder"><UserRound size={68} strokeWidth={1.1} aria-hidden="true" /><strong>Portrait coming soon</strong><span>Replace with your own natural, smart-casual photograph</span></div>
+     </div>
+     <div className="portrait-caption"><span className="eyebrow">RESEARCH × ENGINEERING</span><strong>Nasir Uddin Khan</strong><span>Computer Vision · Trustworthy AI · Software Engineering</span></div>
    </aside>
  </section>
  <section className="paths-section wide-container" aria-label="Explore my work"><PathCards/></section>

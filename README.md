@@ -56,3 +56,12 @@ The build outputs `dist/index.html`, `dist/research/index.html`, and `dist/engin
 - The included `public/cv.pdf` is the user-supplied CV and may expose phone/contact information publicly. Replace with a public-safe version if needed.
 - Update `src/data/content.ts` to maintain project and research information.
 - No hosting bill, backend, or paid services required.
+
+
+
+## V4 portrait and evidence images
+
+The homepage now has a portrait slot and the research and engineering cards accept real images.
+See `public/images/README.md` for filenames and photo guidance.
+Missing images automatically display labeled placeholders (never fake photos or research figures).
+The project still builds with Vite and deploys from the existing `.github/workflows/deploy.yml`.
