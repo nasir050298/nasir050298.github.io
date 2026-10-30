@@ -1,24 +1,21 @@
-# Nasir Uddin Khan — Research & Engineering Portfolio
+# Nasir Uddin Khan — Portfolio V2
 
-Free static site, ready to publish on GitHub Pages. No dependencies, build step, subscription, or paid domain needed.
+Free static portfolio ready for GitHub Pages. No npm, build, or paid services needed.
 
-## Publish (GitHub website)
+## Deploy
+1. Extract this ZIP.
+2. Upload **all contents** (not the enclosing folder) to your `nasir050298.github.io` repository's `main` branch, replacing the old `index.html` and `README.md`.
+3. Keep `research/index.html`, `engineering/index.html`, `styles.css`, `script.js`, and `cv.pdf` at their respective paths.
+4. GitHub Pages: Settings → Pages → Deploy from a branch → `main` / `(root)`.
+5. Visit https://nasir050298.github.io/ after the deployment completes.
 
-1. Create a **public** repository named `nasir050298.github.io` in the `nasir050298` GitHub account.
-2. Upload `index.html`, `cv.pdf`, and `.nojekyll` to the **root** of its `main` branch. (`README.md` is optional.)
-3. Go to **Settings → Pages → Build and deployment**.
-4. Set **Source: Deploy from a branch**, **Branch: main**, **Folder: /(root)**, then **Save**.
-5. Visit https://nasir050298.github.io after publication completes (possibly a few minutes).
+## Pages
+- `/` Home
+- `/research/` Research
+- `/engineering/` Engineering
 
-## Editing
-
-Edit `index.html` for text, links, and CSS. Replace `cv.pdf` when you update your résumé.
-The project links are pointers to public repositories; ensure they remain correct.
-All code is static. Do not commit private information or credentials.
-
-## Notes before going live
-
-- Check the publication statuses and exact bibliographic references.
-- Check TruthGuard service availability and the implementation status of the other showcased projects.
-- Add verified screenshots/research graphics once ready.
-- GitHub Pages will make the included `cv.pdf` publicly downloadable; review it for personal information before uploading.
+## Maintenance
+- For publications, add verified DOI/preprint links, authorship information, and research figures.
+- For engineering, replace illustrated project panels with actual repository screenshots when available.
+- `cv.pdf` is publicly accessible. Review phone and other personal details before deployment.
+- Test 320, 375, 430, 768, 1024, and 1440px widths using browser device emulation. Test keyboard menu, anchors, links, and PDF.
