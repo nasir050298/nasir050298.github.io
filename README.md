@@ -1,38 +1,31 @@
-# Nasir Uddin Khan — Portfolio V5
+# Nasir Uddin Khan — Portfolio V6
 
-Original, responsive research + engineering portfolio, developed using React, TypeScript, Vite and Tailwind CSS 4.
+A unified **single-page** portfolio built with React, TypeScript, Vite, and Tailwind CSS. Sections: **Home → Research → Engineering → About → Skills → Contact**.
 
-## Pages
-- `/` — identity, portrait, two paths, research, engineering, about, contact
-- `/research/` — selected research and manuscripts
-- `/engineering/` — selected software projects
+## Deploy to GitHub Pages
 
-## Deployment to nasir050298.github.io
-1. Back up the current repository with Code > Download ZIP.
-2. Replace matching files by uploading this folder's **contents** to the repository root. Keep `.github/workflows/deploy.yml`. Uploading through GitHub's web UI does not remove obsolete files.
-3. Ensure `public/images/nasir-portrait.jpg` is included.
-4. Commit to `main`.
-5. In Settings > Pages, select GitHub Actions. The existing deployment workflow runs `npm install` then `npm run build`, publishing `dist`.
-6. Inspect the latest Actions run, and refresh https://nasir050298.github.io/.
+1. Back up your repository from **Code → Download ZIP**.
+2. Upload the contents of this folder to the root of `nasir050298.github.io` (not the ZIP or enclosing directory).
+3. Preserve `.github/workflows/deploy.yml` in the repo. If Windows hides the folder, the existing GitHub workflow can remain untouched.
+4. Commit to `main` and leave **Settings → Pages → Source** set to **GitHub Actions**.
+5. Confirm the *Deploy portfolio to GitHub Pages* workflow succeeds. Then visit `https://nasir050298.github.io`.
 
-If you still have a `cache: npm` directive in your old workflow and no lockfile, replace it with this V5 workflow, which omits npm caching.
+The old top-level `engineering/` and `research/` HTML folders are no longer needed. You can delete those old files from GitHub after confirming V6 is live. React now renders every section on `/` and navigation uses anchors.
 
-## Pending authentic visuals
-Replace placeholders only with images you own or are permitted to use:
-- public/images/research-01.webp (LightFace-SAM)
-- public/images/research-02.webp (melanoma fairness)
-- public/images/research-03.webp (underwater fouling)
-- public/images/project-01.webp (TruthGuard)
-- public/images/project-02.webp (BizFlow 360)
-- public/images/project-03.webp (StockPilot)
-- public/images/project-04.webp (NovaUI)
+## Images
 
-The research cards intentionally distinguish under-review, submitted, and co-authored work. Add verified scholarly links, authorship, and experimental data when available. Source project links are stored in `src/data/content.ts`.
+- Portrait: `public/images/nasir-portrait.jpg`
+- Research placeholders: `public/images/research-01.webp`, `research-02.webp`, `research-03.webp`
+- Project placeholders: `public/images/project-01.webp` through `project-04.webp`
+
+Do not use fabricated research or project screenshots. The site displays intentional placeholders until authentic images are supplied.
 
 ## Local development
-- Node.js 22 recommended
-- `npm install`
-- `npm run dev`
-- `npm run build`
 
-Note: the V5 package has not been validated with a successful local production build in the creation environment due to dependency-installation timeout. GitHub Actions will provide build feedback after the commit.
+```bash
+npm install
+npm run dev
+npm run build
+```
+
+Site is static and requires no paid backend. `public/cv.pdf` is publicly downloadable; review it for personal details before publishing.

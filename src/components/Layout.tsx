@@ -4,8 +4,8 @@ import type { ReactNode } from 'react';
 import { email, repo } from '../data/content';
 type NavLink={ label:string; href:string };
 const links:NavLink[]=[
- {label:'Home',href:'/'},{label:'Research',href:'/research/'},{label:'Engineering',href:'/engineering/'},
- {label:'About',href:'/#about'},{label:'Contact',href:'/#contact'}
+ {label:'Home',href:'#home'},{label:'Research',href:'#research'},{label:'Engineering',href:'#engineering'},
+ {label:'About',href:'#about'},{label:'Skills',href:'#skills'},{label:'Contact',href:'#contact'}
 ];
 export function IconLink({href,children,external=false,style='outline'}:{href:string;children:ReactNode;external?:boolean;style?:'outline'|'primary'|'text'}) {
  const cls = style==='primary'?'btn btn-primary':style==='text'?'inline-link':'btn btn-outline';
@@ -14,11 +14,10 @@ export function IconLink({href,children,external=false,style='outline'}:{href:st
 export function Header(){
  const [open,setOpen]=useState(false);
  useEffect(()=>{ const handle=(e:KeyboardEvent)=>{if(e.key==='Escape')setOpen(false)}; window.addEventListener('keydown',handle);return()=>window.removeEventListener('keydown',handle)},[]);
- const path=window.location.pathname;
- return <header className="site-header"><div className="wide-container header-inner">
+return <header className="site-header"><div className="wide-container header-inner">
   <a className="logo" href="/" aria-label="Nasir Uddin Khan home">Nasir<span>.</span></a>
   <nav className="desktop-nav" aria-label="Main navigation">
-   {links.slice(1).map(link=><a key={link.label} className={path===link.href?'active':''} href={link.href}>{link.label}</a>)}
+   {links.slice(1).map(link=><a key={link.label} className={''} href={link.href}>{link.label}</a>)}
    <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">CV <ArrowUpRight aria-hidden="true" size={14}/></a>
   </nav>
   <button className="menu-toggle" aria-expanded={open} aria-controls="mobile-navigation" aria-label={open?'Close menu':'Open menu'} onClick={()=>setOpen(!open)}>{open?<X size={23}/>:<Menu size={23}/>}</button>
