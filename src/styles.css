@@ -95,3 +95,25 @@ html{scroll-padding-top:100px}
 .skill-tag{font-size:13px;font-weight:650;color:#28559a;background:#edf3fd;border:1px solid #e1eafd;border-radius:999px;padding:9px 13px;line-height:1.35}
 @media(max-width:640px){.skills-grid{grid-template-columns:1fr}.skill-group{padding:25px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+
+/* V7 screenshot galleries */
+.project-gallery{overflow:hidden}
+.gallery-media{padding:14px 14px 0}
+.gallery-cover{display:block;position:relative;overflow:hidden;width:100%;aspect-ratio:16/8.3;padding:0;border:0;border-radius:14px;background:#0a1227;cursor:zoom-in}
+.gallery-cover>img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .25s ease}
+.gallery-cover:hover>img{transform:scale(1.025)}
+.enlarge-cue{position:absolute;bottom:10px;right:10px;padding:7px 10px;border-radius:8px;background:rgba(8,17,34,.85);color:#fff;display:flex;gap:6px;align-items:center;font-size:12px;font-weight:700}
+.gallery-thumbs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:10px 0 4px}
+.gallery-thumb{min-width:0;padding:0;border:2px solid transparent;border-radius:9px;overflow:hidden;background:#edf2f9;cursor:pointer;color:#425674;text-align:left}
+.gallery-thumb.selected{border-color:#285df1;background:#eaf0ff}
+.gallery-thumb img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top}
+.gallery-thumb span{display:block;font-size:11px;font-weight:650;padding:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gallery-backdrop{position:fixed;inset:0;z-index:100;background:rgba(4,12,30,.88);padding:clamp(12px,3vw,38px);display:flex;align-items:center;justify-content:center}
+.gallery-dialog{width:min(1100px,100%);max-height:100%;background:#f8faff;border-radius:16px;overflow:auto;box-shadow:0 24px 70px #0006}
+.gallery-dialog-toolbar,.gallery-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px}
+.gallery-dialog-toolbar button,.gallery-controls button{background:white;border:1px solid #cbd8eb;border-radius:9px;display:inline-flex;gap:6px;align-items:center;cursor:pointer;padding:8px 11px;color:#122446}
+.gallery-dialog>img{display:block;max-width:100%;width:100%;height:auto;max-height:70vh;object-fit:contain;background:#071226}
+.gallery-controls span{font-size:13px;color:#64748b}
+@media(max-width:640px){.gallery-media{padding:9px 9px 0}.gallery-thumbs{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery-cover{aspect-ratio:16/10}.enlarge-cue{font-size:10px}.gallery-dialog-toolbar{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.gallery-cover>img{transition:none}.gallery-cover:hover>img{transform:none}}

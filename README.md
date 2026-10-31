@@ -1,31 +1,30 @@
-# Nasir Uddin Khan — Portfolio V6
+# Nasir Uddin Khan — Portfolio V7
 
-A unified **single-page** portfolio built with React, TypeScript, Vite, and Tailwind CSS. Sections: **Home → Research → Engineering → About → Skills → Contact**.
+A unified six-section portfolio: **Home · Research · Engineering · About · Skills · Contact**.
+
+Built with React, TypeScript, Vite and Tailwind CSS. The homepage portrait remains included.
+
+## New in V7
+
+Real screenshots supplied by the portfolio owner are included in `public/images/projects/` for:
+- TruthGuard AI (dashboard, image result, model lab, reviewer queue)
+- BizFlow 360 (reports, CRM, landing page)
+- StockPilot (dashboard, products, stock management)
+- NovaUI (button docs, forms, charts, homepage)
+
+Each project gallery has thumbnail selectors and an enlarged image viewer. The Research section still has explicit placeholders for authentic research figures.
+
+**Content caveats:** TruthGuard image-service integration is distinguished from fallback voice/video modes. Figures on application dashboards may be sample/demo values; do not treat them as independently validated results. Review case filenames, contact details, and other screenshot content before publication.
 
 ## Deploy to GitHub Pages
 
-1. Back up your repository from **Code → Download ZIP**.
-2. Upload the contents of this folder to the root of `nasir050298.github.io` (not the ZIP or enclosing directory).
-3. Preserve `.github/workflows/deploy.yml` in the repo. If Windows hides the folder, the existing GitHub workflow can remain untouched.
-4. Commit to `main` and leave **Settings → Pages → Source** set to **GitHub Actions**.
-5. Confirm the *Deploy portfolio to GitHub Pages* workflow succeeds. Then visit `https://nasir050298.github.io`.
+1. Back up your current repository (`Code → Download ZIP`).
+2. Upload the *contents* of this folder into `nasir050298.github.io` on `main`, preserving folder structure.
+3. Keep `.github/workflows/deploy.yml` from your current working site if the browser does not include hidden folders.
+4. Keep Settings → Pages → Source set to **GitHub Actions**.
+5. Check Actions → **Deploy portfolio to GitHub Pages** for a green checkmark.
+6. Open https://nasir050298.github.io and hard-refresh.
 
-The old top-level `engineering/` and `research/` HTML folders are no longer needed. You can delete those old files from GitHub after confirming V6 is live. React now renders every section on `/` and navigation uses anchors.
+The old top-level `engineering/` and `research/` redirect folders are not required for the single-page site and may be removed once deployment is confirmed.
 
-## Images
-
-- Portrait: `public/images/nasir-portrait.jpg`
-- Research placeholders: `public/images/research-01.webp`, `research-02.webp`, `research-03.webp`
-- Project placeholders: `public/images/project-01.webp` through `project-04.webp`
-
-Do not use fabricated research or project screenshots. The site displays intentional placeholders until authentic images are supplied.
-
-## Local development
-
-```bash
-npm install
-npm run dev
-npm run build
-```
-
-Site is static and requires no paid backend. `public/cv.pdf` is publicly downloadable; review it for personal details before publishing.
+For local development: `npm install`, `npm run dev`; verify with `npm run build`.

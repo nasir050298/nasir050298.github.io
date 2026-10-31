@@ -1,6 +1,7 @@
-import { ArrowUpRight, ArrowRight, BrainCircuit, Code2 } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, BrainCircuit, Code2, Expand, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
-import { projects, research } from '../data/content';
+import { projects, research, projectGallery } from '../data/content';
 export function SectionIntro({eyebrow,title,description,action}:{eyebrow:string;title:string;description?:string;action?:ReactNode}){
  return <div className="section-heading"><div><span className="eyebrow">{eyebrow}</span><h2>{title}</h2>{description&&<p>{description}</p>}</div>{action&&<div>{action}</div>}</div>
 }
@@ -11,16 +12,50 @@ export function ResearchCards({limit=3}:{limit?:number}){
   <span className="status-tag">{item.status}</span>
  </article>)}</div>
 }
-const icons=[BrainCircuit,Code2,Code2,Code2];
 export function ProjectCards({limit=4}:{limit?:number}){
- return <div className="project-grid">{projects.slice(0,limit).map((item,i)=>{
- const Icon=icons[i]; return <article className="project-card" key={item.id}>
-   <div className={'project-visual '+item.tone}><img className="project-screenshot" src={'/images/project-'+item.id+'.webp'} alt={'Screenshot of '+item.title} loading="lazy" onError={e=>{e.currentTarget.style.display='none';e.currentTarget.parentElement?.classList.add('screenshot-unavailable')}}/><div className="project-placeholder"><Icon size={40} strokeWidth={1.5} aria-hidden="true"/><span>{item.kicker}</span><small>Project screenshot to be added</small></div></div>
-   <div className="project-body"><span className="card-eyebrow">PROJECT / {item.id}</span><h3>{item.title}</h3><p>{item.desc}</p>
-    <div className="tag-wrap">{item.tags.map(t=><span className="tag" key={t}>{t}</span>)}</div>
-    <a className="project-link" href={item.url} target="_blank" rel="noopener noreferrer">View source <ArrowUpRight size={17} aria-hidden="true"/></a>
-   </div></article>
- })}</div>
+ return <div className="project-grid">{projects.slice(0,limit).map((item)=>
+ <ProjectGalleryCard key={item.id} item={item}/>)}</div>
+}
+function ProjectGalleryCard({item}:{item:(typeof projects)[number]}){
+ const images=projectGallery[item.id] ?? [];
+ const [selected,setSelected]=useState(0);
+ const [expanded,setExpanded]=useState(false);
+ const current=images[selected];
+ useEffect(()=>{
+   if(!expanded)return;
+   const onKey=(e:KeyboardEvent)=>{
+     if(e.key==='Escape')setExpanded(false);
+     if(e.key==='ArrowRight')setSelected(n=>(n+1)%images.length);
+     if(e.key==='ArrowLeft')setSelected(n=>(n+images.length-1)%images.length);
+   };
+   window.addEventListener('keydown',onKey);
+   return ()=>window.removeEventListener('keydown',onKey);
+ },[expanded,images.length]);
+ return <article className="project-card project-gallery" >
+    <div className="gallery-media">
+      <button className="gallery-cover" onClick={()=>setExpanded(true)} aria-label={'Enlarge '+item.title+' '+current.label}>
+       <img src={current.src} alt={item.title+': '+current.label} loading="lazy"/>
+       <span className="enlarge-cue"><Expand size={16} aria-hidden="true"/> Enlarge screenshot</span>
+      </button>
+      <div className="gallery-thumbs" role="group" aria-label={item.title+' screenshots'}>
+       {images.map((im,i)=><button key={im.src} aria-label={'Show '+im.label} aria-pressed={selected===i} className={'gallery-thumb '+(selected===i?'selected':'')} onClick={()=>setSelected(i)}>
+       <img src={im.src} alt="" loading="lazy"/><span>{im.label}</span></button>)}
+      </div>
+    </div>
+    <div className="project-body">
+      <span className="card-eyebrow">PROJECT / {item.id}</span>
+      <h3>{item.title}</h3><p>{item.desc}</p>
+      <div className="tag-wrap">{item.tags.map(t=><span className="tag" key={t}>{t}</span>)}</div>
+      <a className="project-link" href={item.url} target="_blank" rel="noopener noreferrer">View source <ArrowUpRight size={17} aria-hidden="true"/></a>
+    </div>
+    {expanded&&<div className="gallery-backdrop" role="presentation" onMouseDown={(e)=>{if(e.target===e.currentTarget)setExpanded(false)}}>
+     <div className="gallery-dialog" role="dialog" aria-modal="true" aria-label={item.title+' screenshot viewer'}>
+       <div className="gallery-dialog-toolbar"><strong>{item.title} · {current.label}</strong><button onClick={()=>setExpanded(false)} aria-label="Close image viewer"><X size={23}/></button></div>
+       <img src={current.src} alt={item.title+': '+current.label}/>
+       <div className="gallery-controls"><button onClick={()=>setSelected(n=>(n+images.length-1)%images.length)}><ChevronLeft size={18}/> Previous</button><span>{selected+1} / {images.length}</span><button onClick={()=>setSelected(n=>(n+1)%images.length)}>Next <ChevronRight size={18}/></button></div>
+     </div>
+    </div>}
+   </article>
 }
 export function PathCards(){return <div className="path-grid">
  <a href="/research/" className="path-card path-research"><div className="path-icon"><BrainCircuit aria-hidden="true" size={24}/></div><div><span className="eyebrow">01 / ACADEMIC RESEARCH</span><h3>Explore Research</h3><p>Trustworthy AI, facial recognition, demographic fairness, and medical image analysis.</p></div><span className="path-action">Research pathway <ArrowRight size={17} aria-hidden="true"/></span></a>

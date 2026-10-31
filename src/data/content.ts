@@ -17,3 +17,28 @@ export const projects = [
  {id:'03',title:'StockPilot',kicker:'INVENTORY DASHBOARD',desc:'Vue-based inventory and sales dashboard with business-oriented views, reports, and reactive state management.',tags:['Vue 3','TypeScript','Pinia'],url:repo+'/stockpilot-vue-inventory-dashboard',tone:'violet'},
  {id:'04',title:'NovaUI',kicker:'DESIGN SYSTEM',desc:'Reusable React component design system exploring consistent UI patterns, documentation, and accessible interface components.',tags:['React','TypeScript','UI Components'],url:repo+'/novaui-react-design-system',tone:'slate'}
 ];
+
+export const projectGallery: Record<string, {src:string;label:string}[]> = {
+ '01': [
+  {src:'/images/projects/truthguard/dashboard.webp',label:'Forensics dashboard'},
+  {src:'/images/projects/truthguard/image-result.webp',label:'Image model result'},
+  {src:'/images/projects/truthguard/model-lab.webp',label:'AI service status'},
+  {src:'/images/projects/truthguard/case-review.webp',label:'Reviewer queue'}
+ ],
+ '02': [
+  {src:'/images/projects/bizflow/reports.webp',label:'Reports and analytics'},
+  {src:'/images/projects/bizflow/crm.webp',label:'CRM pipeline'},
+  {src:'/images/projects/bizflow/homepage.webp',label:'Landing interface'}
+ ],
+ '03': [
+  {src:'/images/projects/stockpilot/dashboard.webp',label:'Inventory dashboard'},
+  {src:'/images/projects/stockpilot/products.webp',label:'Product management'},
+  {src:'/images/projects/stockpilot/stock.webp',label:'Stock operations'}
+ ],
+ '04': [
+  {src:'/images/projects/novaui/buttons.webp',label:'Button documentation'},
+  {src:'/images/projects/novaui/forms.webp',label:'Form components'},
+  {src:'/images/projects/novaui/charts.webp',label:'Chart components'},
+  {src:'/images/projects/novaui/homepage.webp',label:'Design system home'}
+ ]
+};
