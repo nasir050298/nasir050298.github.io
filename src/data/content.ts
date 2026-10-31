@@ -7,8 +7,8 @@ export const research = [
  { id:'02', title:'Intersectional Fairness in Melanoma Classification', topic:'Trustworthy Medical AI',
    description:'Lesion-aware evaluation and mitigation of fairness disparities in melanoma classification using the ISIC 2019 dataset.',
    tags:['Medical AI','Fairness'], status:'Submitted · 3 Oct 2026' },
- { id:'03', title:'Underwater Fouling Analysis', topic:'Marine Computer Vision',
-   description:'Co-authored work investigating deep learning-based underwater fouling classification and YOLOv8 instance segmentation.',
+ { id:'03', title:'Underwater Fouling Detection & Classification', topic:'Marine Computer Vision',
+   description:'Co-authored research on comparative deep learning models for underwater fouling classification and YOLOv8-based instance segmentation.',
    tags:['Deep Learning','YOLOv8'], status:'Co-authored research' }
 ];
 export const projects = [
