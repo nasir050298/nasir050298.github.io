@@ -117,3 +117,30 @@ html{scroll-padding-top:100px}
 .gallery-controls span{font-size:13px;color:#64748b}
 @media(max-width:640px){.gallery-media{padding:9px 9px 0}.gallery-thumbs{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery-cover{aspect-ratio:16/10}.enlarge-cue{font-size:10px}.gallery-dialog-toolbar{font-size:13px}}
 @media(prefers-reduced-motion:reduce){.gallery-cover>img{transition:none}.gallery-cover:hover>img{transform:none}}
+
+
+/* Unified researcher + developer portfolio additions */
+.research-vision{background:linear-gradient(120deg,#eaf1ff,#fff);border:1px solid #dbe5fa;border-radius:22px;padding:28px 32px;margin:12px 0 26px;max-width:1000px}
+.research-vision h3{font-size:clamp(23px,3vw,33px);letter-spacing:-.04em;margin:10px 0}
+.research-vision p{line-height:1.7;color:#4c6180;margin:10px 0}
+.disclosure-note,.research-private-note{font-size:12px!important;color:#6e819e!important}
+.official-title{font-size:13px!important;font-weight:650;color:#334e75!important}
+.research-authors{font-size:12px!important;color:#637a97!important}
+.case-study{border-top:1px solid #e2eaf5;margin-top:18px;padding-top:13px;display:grid;gap:9px}
+.case-study div b{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#2557bf}
+.case-study div p{font-size:13px;line-height:1.55;margin:4px 0;color:#586b85}
+.archive-section{margin-top:78px}
+.archive-header{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}
+.archive-header h3{font-size:30px;letter-spacing:-.04em;margin:7px 0}
+.archive-header p{color:#61748c;max-width:650px;line-height:1.6;margin:0}
+.archive-filters{display:flex;flex-wrap:wrap;gap:9px;margin:24px 0}
+.archive-filters button{background:#fff;border:1px solid #dbe4f1;padding:10px 15px;border-radius:100px;color:#415678;cursor:pointer;font-size:13px;font-weight:650}
+.archive-filters button.chosen,.archive-filters button[aria-pressed=true]{background:#2459ed;color:white;border-color:#2459ed}
+.archive-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.archive-item{display:block;border:1px solid #dae5f4;background:#fff;border-radius:14px;padding:20px;transition:border-color .15s,transform .15s}
+.archive-item:hover{transform:translateY(-2px);border-color:#6287e6}
+.archive-item .archive-category{font-size:11px;color:#2760d4;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.archive-item strong{display:flex;gap:8px;align-items:center;margin:10px 0;font-size:17px}
+.archive-item p{margin:0;color:#637793;line-height:1.6;font-size:13px}
+@media(max-width:850px){.archive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.archive-header{display:block}.research-vision{padding:20px}}
+@media(max-width:600px){.archive-grid{grid-template-columns:1fr}}

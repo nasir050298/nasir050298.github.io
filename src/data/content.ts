@@ -1,44 +1,35 @@
 export const repo = 'https://github.com/nasir050298';
 export const email = 'nasiruddin.yzu2018@gmail.com';
-export const research = [
- { id:'01', title:'LightFace-SAM', topic:'Efficient Face Recognition',
-   description:'An ultra-lightweight face recognition model exploring low-rank embeddings and sharpness-aware optimization.',
-   tags:['Computer Vision','Face Recognition'], status:'Manuscript under review' },
- { id:'02', title:'Intersectional Fairness in Melanoma Classification', topic:'Trustworthy Medical AI',
-   description:'Lesion-aware evaluation and mitigation of fairness disparities in melanoma classification using the ISIC 2019 dataset.',
-   tags:['Medical AI','Fairness'], status:'Submitted · 3 Oct 2026' },
- { id:'03', title:'Underwater Fouling Detection & Classification', topic:'Marine Computer Vision',
-   description:'Co-authored research on comparative deep learning models for underwater fouling classification and YOLOv8-based instance segmentation.',
-   tags:['Deep Learning','YOLOv8'], status:'Co-authored research' }
-];
-export const projects = [
- {id:'01',title:'TruthGuard AI',kicker:'AI FORENSICS',desc:'Multimodal forensics application with image authenticity analysis, audio/video review interfaces, and case workflows. Image analysis uses an integrated model; voice and video services currently include fallback behavior.',tags:['React','Python','FastAPI'],url:repo+'/truthguard-ai-multimodal-forensics',tone:'blue'},
- {id:'02',title:'BizFlow 360',kicker:'BUSINESS PLATFORM',desc:'Business management SaaS frontend showcasing dashboards, CRM, invoicing, inventory, and project workflows. Uses browser-local persistence.',tags:['React','TypeScript','Zustand'],url:repo+'/bizflow-360-business-management-saas',tone:'teal'},
- {id:'03',title:'StockPilot',kicker:'INVENTORY DASHBOARD',desc:'Vue-based inventory and sales dashboard with business-oriented views, reports, and reactive state management.',tags:['Vue 3','TypeScript','Pinia'],url:repo+'/stockpilot-vue-inventory-dashboard',tone:'violet'},
- {id:'04',title:'NovaUI',kicker:'DESIGN SYSTEM',desc:'Reusable React component design system exploring consistent UI patterns, documentation, and accessible interface components.',tags:['React','TypeScript','UI Components'],url:repo+'/novaui-react-design-system',tone:'slate'}
-];
 
-export const projectGallery: Record<string, {src:string;label:string}[]> = {
- '01': [
-  {src:'/images/projects/truthguard/dashboard.webp',label:'Forensics dashboard'},
-  {src:'/images/projects/truthguard/image-result.webp',label:'Image model result'},
-  {src:'/images/projects/truthguard/model-lab.webp',label:'AI service status'},
-  {src:'/images/projects/truthguard/case-review.webp',label:'Reviewer queue'}
- ],
- '02': [
-  {src:'/images/projects/bizflow/reports.webp',label:'Reports and analytics'},
-  {src:'/images/projects/bizflow/crm.webp',label:'CRM pipeline'},
-  {src:'/images/projects/bizflow/homepage.webp',label:'Landing interface'}
- ],
- '03': [
-  {src:'/images/projects/stockpilot/dashboard.webp',label:'Inventory dashboard'},
-  {src:'/images/projects/stockpilot/products.webp',label:'Product management'},
-  {src:'/images/projects/stockpilot/stock.webp',label:'Stock operations'}
- ],
- '04': [
-  {src:'/images/projects/novaui/buttons.webp',label:'Button documentation'},
-  {src:'/images/projects/novaui/forms.webp',label:'Form components'},
-  {src:'/images/projects/novaui/charts.webp',label:'Chart components'},
-  {src:'/images/projects/novaui/homepage.webp',label:'Design system home'}
- ]
+export const research = [
+ {id:'01',title:'LightFace-SAM',official:'A Compact MobileNetV2-Based Face Recognition Framework with Low-Rank Embeddings and Sharpness-Aware Optimization',topic:'Efficient Computer Vision',authors:'Nasir Uddin Khan · Milembolo Miantezila Junior · Guo Bin',description:'An investigation of compact face representations for resource-constrained recognition. The study examines the relationship between model efficiency, verification ability, and optimization choices under limited training resources.',tags:['Face Recognition','Model Efficiency','Computer Vision'],status:'Manuscript under review'},
+ {id:'02',title:'Fairness and Bias Mitigation in AI-Based Melanoma Classification',official:'Lesion-Aware Intersectional Fairness Evaluation and Mitigation in Melanoma Classification Using ISIC 2019',topic:'Trustworthy Medical AI',authors:'Nasir Uddin Khan · Kabir Hossen · Omar Faruk · Abdul Qadir · Muneer Ahmad',description:'A lesion-aware study of demographic disparities in melanoma image classification. It examines intersectional sex and age groups and evaluates fairness interventions alongside model performance and statistical reliability.',tags:['Medical Imaging','Intersectional Fairness','ISIC 2019'],status:'Submitted · October 2026'},
+ {id:'03',title:'Underwater Fouling Detection & Classification',official:'Co-authored research in underwater fouling classification and YOLOv8-based segmentation',topic:'Applied Computer Vision',authors:'Co-authored research',description:'Collaborative work exploring deep learning approaches for underwater fouling image classification and instance segmentation.',tags:['Deep Learning','YOLOv8','Segmentation'],status:'Co-authored research'}
+];
+export type Project = {id:string;title:string;kicker:string;desc:string;problem:string;solution:string;contribution:string;engineering:string;limitations:string;tags:string[];url:string;tone:string};
+export const projects:Project[]=[
+ {id:'01',title:'TruthGuard AI',kicker:'AI APPLICATION ENGINEERING',desc:'Forensics interface combining image analysis with case review and audio/video workflows.',problem:'Investigators need a consistent interface for viewing media authenticity signals and organizing cases.',solution:'An application with image analysis results, service monitoring, review workflows, and supporting media modules.',contribution:'Project implementation and integration details are documented in the repository; inspect the source for module-level evidence.',engineering:'React frontend, Express application layer, and Python/FastAPI image-analysis integration.',limitations:'Image analysis uses a connected model; audio and video workflows can use fallback behavior. Results are not independently validated forensic conclusions.',tags:['React','TypeScript','Express','FastAPI'],url:repo+'/truthguard-ai-multimodal-forensics',tone:'blue'},
+ {id:'02',title:'BizFlow 360',kicker:'ENTERPRISE FRONTEND',desc:'Modular business management frontend with CRM, reports, projects, and operations views.',problem:'Business operations often span separate, inconsistent interfaces.',solution:'A unified dashboard-oriented frontend with CRM, inventory, invoicing, and reporting modules.',contribution:'Demonstrates UI structure, navigation, dashboards, stateful workflows, and reusable components; detailed ownership should be established in interviews.',engineering:'React, TypeScript, Zustand, Recharts, data tables, and interactive workflows.',limitations:'Uses browser-local persistence and demonstration data; it is not presented as a production multi-tenant SaaS.',tags:['React','TypeScript','Zustand','Recharts'],url:repo+'/bizflow-360-business-management-saas',tone:'teal'},
+ {id:'03',title:'CollabSpace',kicker:'REAL-TIME WEB APPLICATION',desc:'Workspace-based team collaboration interface with chat, tasks, notes, and administration.',problem:'Remote teams need shared messaging and lightweight collaborative workflows.',solution:'Workspace channels and direct messages with task and administrative interfaces.',contribution:'Project functionality and code can be evaluated in the repository; portfolio claims are intentionally limited to documented features.',engineering:'React, TypeScript, Express, and Socket.IO-based real-time communication.',limitations:'Screenshots demonstrate application UI; deployment scale, durable persistence, and production readiness are not claimed.',tags:['React','TypeScript','Socket.IO','Express'],url:repo+'/collabspace-realtime-chat-collaboration',tone:'blue'},
+ {id:'04',title:'StockPilot',kicker:'VUE APPLICATION',desc:'Inventory and stock-management interface with business dashboard views.',problem:'Inventory workflows require accessible product and stock information.',solution:'A Vue dashboard combining products, inventory adjustments, and summaries.',contribution:'Shows application state and interface patterns in Vue; supporting views are documented in screenshots.',engineering:'Vue 3, TypeScript, Pinia, and interactive inventory views.',limitations:'Backend, authentication, and database integrations should not be assumed from the UI prototype.',tags:['Vue 3','TypeScript','Pinia'],url:repo+'/stockpilot-vue-inventory-dashboard',tone:'violet'},
+ {id:'05',title:'NovaUI',kicker:'COMPONENT ENGINEERING',desc:'React design system with reusable UI patterns and documentation.',problem:'Product interfaces benefit from consistent, reusable component APIs.',solution:'A library-style showcase of button variants, forms, charts, and design patterns.',contribution:'Demonstrates component composition, visual consistency, and documentation-oriented frontend development.',engineering:'React, TypeScript, reusable component patterns, and responsive presentation.',limitations:'Automated test coverage and package publication are not claimed where listed as future work.',tags:['React','TypeScript','Design Systems'],url:repo+'/novaui-react-design-system',tone:'slate'}
+];
+export const projectGallery:Record<string,{src:string;label:string}[]>={
+ '01':[{src:'/images/projects/truthguard/dashboard.webp',label:'Forensics dashboard'},{src:'/images/projects/truthguard/image-result.webp',label:'Image analysis result'},{src:'/images/projects/truthguard/model-lab.webp',label:'Model lab'},{src:'/images/projects/truthguard/case-review.webp',label:'Case review'}],
+ '02':[{src:'/images/projects/bizflow/reports.webp',label:'Reporting dashboard'},{src:'/images/projects/bizflow/crm.webp',label:'CRM pipeline'},{src:'/images/projects/bizflow/homepage.webp',label:'Application home'}],
+ '03':[{src:'/images/projects/collabspace/workspace.webp',label:'Workspace chat'},{src:'/images/projects/collabspace/direct-messages.webp',label:'Direct messages'},{src:'/images/projects/collabspace/tasks.webp',label:'Task management'},{src:'/images/projects/collabspace/admin.webp',label:'Administration'},{src:'/images/projects/collabspace/homepage.webp',label:'Homepage'}],
+ '04':[{src:'/images/projects/stockpilot/dashboard.webp',label:'Inventory dashboard'},{src:'/images/projects/stockpilot/products.webp',label:'Product management'},{src:'/images/projects/stockpilot/stock.webp',label:'Stock management'}],
+ '05':[{src:'/images/projects/novaui/buttons.webp',label:'Button documentation'},{src:'/images/projects/novaui/forms.webp',label:'Form patterns'},{src:'/images/projects/novaui/charts.webp',label:'Charts'},{src:'/images/projects/novaui/homepage.webp',label:'Design system home'}]
 };
+export const archive = [
+ {name:'AgriVision Command Center',category:'Full Stack',repo:'agrivision-command-center',info:'Smart agriculture dashboard and analytics'},
+ {name:'EditorialX',category:'Frontend',repo:'editorialx-blog-cms-platform',info:'Blog and content management interface'},
+ {name:'LabSphere',category:'Full Stack',repo:'labsphere-research-lab-management',info:'Research lab management application'},
+ {name:'MedScan AI',category:'AI Applications',repo:'medscan-ai-medical-image-diagnosis',info:'Medical imaging interface with simulated analysis; not a clinical diagnostic tool'},
+ {name:'DeepfakeShield',category:'AI Applications',repo:'deepfakeshield-real-ai-edition',info:'Image authenticity application'},
+ {name:'VideoTruth',category:'AI Applications',repo:'videotruth-real-ai-edition',info:'Video forensics application'},
+ {name:'CyberSentinel AI',category:'AI Applications',repo:'cybersentinel-ai-threat-detection',info:'Security monitoring application'},
+ {name:'CropLodgeNet',category:'AI Applications',repo:'croplodgenet-uav-wheat-lodging-segmentation',info:'UAV segmentation software prototype'},
+ {name:'ElectroHub',category:'Full Stack',repo:'electronics-ecommerce-fullstack',info:'E-commerce application — gallery will be added later'},
+ {name:'LightFace-SAM Software',category:'Research Software',repo:'ipol_lightface_sam_v2_ipol_package',info:'Research demo repository; review public-sharing permissions before promoting'}
+];

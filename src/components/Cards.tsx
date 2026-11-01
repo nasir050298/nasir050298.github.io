@@ -7,12 +7,14 @@ export function SectionIntro({eyebrow,title,description,action}:{eyebrow:string;
 }
 export function ResearchCards({limit=3}:{limit?:number}){
  return <div className="research-grid">{research.slice(0,limit).map(item=><article className="research-card" key={item.id}>
-  <div className="research-figure"><img src={'/images/research-'+item.id+'.webp'} alt={'Research figure for '+item.title} loading="lazy" onError={e=>{e.currentTarget.style.display='none';e.currentTarget.parentElement?.classList.add('figure-unavailable')}} /><div className="figure-placeholder"><BrainCircuit size={23} aria-hidden="true"/><span>Verified research figure to be added</span></div></div><span className="card-eyebrow">RESEARCH / {item.id}</span><p className="research-topic">{item.topic}</p><h3>{item.title}</h3><p>{item.description}</p>
-  <div className="tag-wrap">{item.tags.map(t=><span className="tag" key={t}>{t}</span>)}</div>
+  <span className="card-eyebrow">RESEARCH / {item.id}</span><p className="research-topic">{item.topic}</p>
+  <h3>{item.title}</h3><p className="official-title">{item.official}</p><p className="research-authors">{item.authors}</p>
+  <p>{item.description}</p><div className="tag-wrap">{item.tags.map(t=><span className="tag" key={t}>{t}</span>)}</div>
   <span className="status-tag">{item.status}</span>
+  <p className="research-private-note">Full unpublished manuscript and detailed experimental materials are not hosted on this site.</p>
  </article>)}</div>
 }
-export function ProjectCards({limit=4}:{limit?:number}){
+export function ProjectCards({limit=5}:{limit?:number}){
  return <div className="project-grid">{projects.slice(0,limit).map((item)=>
  <ProjectGalleryCard key={item.id} item={item}/>)}</div>
 }
@@ -45,6 +47,11 @@ function ProjectGalleryCard({item}:{item:(typeof projects)[number]}){
     <div className="project-body">
       <span className="card-eyebrow">PROJECT / {item.id}</span>
       <h3>{item.title}</h3><p>{item.desc}</p>
+      <div className="case-study"><div><b>Problem</b><p>{item.problem}</p></div>
+      <div><b>Solution</b><p>{item.solution}</p></div>
+      <div><b>Technical implementation</b><p>{item.engineering}</p></div>
+      <div><b>Evidence & contribution</b><p>{item.contribution}</p></div>
+      <div><b>Current limitations</b><p>{item.limitations}</p></div></div>
       <div className="tag-wrap">{item.tags.map(t=><span className="tag" key={t}>{t}</span>)}</div>
       <a className="project-link" href={item.url} target="_blank" rel="noopener noreferrer">View source <ArrowUpRight size={17} aria-hidden="true"/></a>
     </div>

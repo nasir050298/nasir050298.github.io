@@ -1,30 +1,38 @@
-# Nasir Uddin Khan — Portfolio V7
+# Nasir Uddin Khan — Unified Research + Engineering Portfolio
 
-A unified six-section portfolio: **Home · Research · Engineering · About · Skills · Contact**.
+Single-page portfolio for **prospective PhD supervisors** and **software engineering recruiters**.
 
-Built with React, TypeScript, Vite and Tailwind CSS. The homepage portrait remains included.
+Sections: **Home → Research → Engineering → About → Skills → Contact**.
 
-## New in V7
+This is based on the existing V7 React/TypeScript/Tailwind website with the same professional portrait and homepage layout.
 
-Real screenshots supplied by the portfolio owner are included in `public/images/projects/` for:
-- TruthGuard AI (dashboard, image result, model lab, reviewer queue)
-- BizFlow 360 (reports, CRM, landing page)
-- StockPilot (dashboard, products, stock management)
-- NovaUI (button docs, forms, charts, homepage)
+## What's included
+- Three research entries, including both unpublished manuscripts with factual, public-safe high-level summaries and statuses.
+- Research Vision and explicit non-disclosure notice; **no manuscript PDFs, unpublished results, or architecture diagrams included**.
+- Five featured engineering case studies and authentic screenshot galleries:
+  - TruthGuard AI (4 screenshots)
+  - BizFlow 360 (3 screenshots)
+  - CollabSpace (5 screenshots extracted from user's supplied project ZIP)
+  - StockPilot (3 screenshots)
+  - NovaUI (4 screenshots)
+- Filterable project archive; **ElectroHub included only as an archive link and NOT a featured screenshot project** until genuine screenshots are available.
+- Existing resume (`public/cv.pdf`) and portrait.
 
-Each project gallery has thumbnail selectors and an enlarged image viewer. The Research section still has explicit placeholders for authentic research figures.
+## Important content review before publishing
+1. Review `src/data/content.ts` for authorship, manuscript statuses, technical wording, email address and project ownership details. A public repo does not establish who implemented every feature.
+2. Some screenshots may contain example names, file names, case information, or sample business figures. Mask anything you don't want public.
+3. Research software archive links may point to already public repos: assess the sharing status of any unpublished research code.
+4. Ensure all descriptions of prototype systems, demo figures and AI fallbacks remain accurate.
 
-**Content caveats:** TruthGuard image-service integration is distinguished from fallback voice/video modes. Figures on application dashboards may be sample/demo values; do not treat them as independently validated results. Review case filenames, contact details, and other screenshot content before publication.
+## GitHub Pages deployment
+1. Back up current GitHub repo first.
+2. Extract ZIP.
+3. Upload the **contents** of this folder, not the outer folder, to the root of `nasir050298/nasir050298.github.io`.
+4. Preserve `src/`, `public/`, `package.json`, `vite.config.ts`, and `.github/workflows/deploy.yml` folder structure. Browsers may not upload `.github` by default; preserve the existing working workflow in that case.
+5. Under repository **Settings → Pages**, select **GitHub Actions** as the source.
+6. Commit and check **Actions** for build/deploy results.
+7. Visit https://nasir050298.github.io
 
-## Deploy to GitHub Pages
+Local: `npm install`, `npm run dev`; production build `npm run build`.
 
-1. Back up your current repository (`Code → Download ZIP`).
-2. Upload the *contents* of this folder into `nasir050298.github.io` on `main`, preserving folder structure.
-3. Keep `.github/workflows/deploy.yml` from your current working site if the browser does not include hidden folders.
-4. Keep Settings → Pages → Source set to **GitHub Actions**.
-5. Check Actions → **Deploy portfolio to GitHub Pages** for a green checkmark.
-6. Open https://nasir050298.github.io and hard-refresh.
-
-The old top-level `engineering/` and `research/` redirect folders are not required for the single-page site and may be removed once deployment is confirmed.
-
-For local development: `npm install`, `npm run dev`; verify with `npm run build`.
+The V7 project did not include a package lock; workflow uses `npm install` without npm cache.
